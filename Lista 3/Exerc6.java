@@ -25,10 +25,6 @@ public class Exerc6 {
 			System.out.println("Valor do vetor " + (i + 1) + ": ");
 			vet[i] = sc.nextInt();
 		}
-		System.out.println("Vetor atual: ");
-		for (int i = 0; i < vet.length; i++) {
-			System.out.println(vet[i]);
-		}
 
 		ordenar(vet, tamanho);
 
