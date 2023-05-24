@@ -3,7 +3,7 @@ package robo;
 public class Rainha extends Robo {
 
 	public Rainha(int id, String nome, int posicaox, int posicaoy, Plano plano, int pontos) {
-		super(id, nome, 1, 1, plano, pontos, "Q");
+		super(id, "Rainha", 1, 1, plano, pontos, "Q");
 	}
 
 	@Override

@@ -66,18 +66,20 @@ public class Partida {
 			int yBuscado = robo.getPosicaoy();
 			Celula c = plano.retornarCelula(xBuscado, yBuscado);
 
-			if (c.temAluno()) {
-				alunosPerdidos--;
-				c.retiraAluno();
-				robo.pontuar(c);
-				System.out.println("Aluno encontrado. +10 pontos!");
-			}
+			if (c != null) {
+				if (c.temAluno()) {
+					alunosPerdidos--;
+					c.retiraAluno();
+					robo.pontuar(c);
+					System.out.println("Aluno encontrado. +10 pontos!");
+				}
 
-			if (c.temBug()) {
-				bugsEscondidos--;
-				c.retiraBug();
-				robo.pontuar(c);
-				System.out.println("Bug encontrado. -15 pontos!");
+				if (c.temBug()) {
+					bugsEscondidos--;
+					c.retiraBug();
+					robo.pontuar(c);
+					System.out.println("Bug encontrado. -15 pontos!");
+				}
 			}
 		}
 	}
@@ -98,9 +100,15 @@ public class Partida {
 	private void Pontos() {
 		for (Robo robo : r) {
 			System.out.println("Pontuação do " + robo.getNome() + ": " + robo.getPontos());
-		}
+			System.out.println(
+					"Posiçao do robo " + robo.getNome() + ": (" + robo.getPosicaox() + "," + robo.getPosicaoy() + ").");
 
-		// como o tabuleiro com as posições dos robôs e os alunos e bugs descobertos
+			List<Celula> visitadas = robo.visitadas();
+			System.out.println("Posições visitadas pelo " + robo.getNome() + ":");
+			for (Celula c : visitadas) {
+				System.out.println("(" + c.getPosicaoX() + "," + c.getPosicaoY() + ").");
+			}
+		}
 
 	}
 
@@ -133,8 +141,8 @@ public class Partida {
 
 	private void Relatorio() {
 		System.out.println("Relatório da rodada: ");
-		System.out.println("Foram achados: " + alunosPerdidos + " alunos.");
-		System.out.println("Foram achados: " + bugsEscondidos + " bugs.");
+		System.out.println("Restam " + alunosPerdidos + " alunos.");
+		System.out.println("Restam " + bugsEscondidos + " bugs.");
 	}
 
 	private void RelatorioFinal() {

@@ -3,8 +3,7 @@ package robo;
 public class Bispo extends Robo {
 
 	public Bispo(int id, String nome, int posicaox, int posicaoy, Plano plano, int pontos) {
-		super(id, nome, 1, 1, plano, pontos, "B");
-		// TODO Auto-generated constructor stub
+		super(id, "Bispo", 1, 1, plano, pontos, "B");
 	}
 
 	@Override

@@ -3,7 +3,7 @@ package robo;
 public class Rei extends Robo {
 
 	public Rei(int id, String nome, int posicaox, int posicaoy, Plano plano, int pontos) {
-		super(id, nome, 1, 1, plano, pontos, "K");
+		super(id, "Rei", 1, 1, plano, pontos, "K");
 		// TODO Auto-generated constructor stub
 	}
 

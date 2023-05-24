@@ -3,7 +3,7 @@ package robo;
 public class Torre extends Robo {
 
 	public Torre(int id, String nome, int posicaox, int posicaoy, Plano plano, int pontos) {
-		super(id, nome, posicaox, posicaoy, plano, pontos, "T");
+		super(id, "Torre", posicaox, posicaoy, plano, pontos, "T");
 		// TODO Auto-generated constructor stub
 	}
 
