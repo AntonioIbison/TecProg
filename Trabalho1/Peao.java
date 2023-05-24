@@ -3,7 +3,7 @@ package robo;
 public class Peao extends Robo {
 
 	public Peao(int id, String nome, int posicaox, int posicaoy, Plano plano, int pontos) {
-		super(id, nome, 1, 1, plano, pontos);
+		super(id, nome, 1, 1, plano, pontos, "P");
 	}
 
 	@Override

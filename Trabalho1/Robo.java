@@ -1,5 +1,8 @@
 package robo;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public abstract class Robo {
 
 	public int id;
@@ -8,15 +11,18 @@ public abstract class Robo {
 	public int posicaoy;
 	public Plano plano;
 	public int pontos;
+	private String letra;
+	private List<Celula> Visitadas;
 
-	public Robo(int id, String nome, int posicaox, int posicaoy, Plano plano, int pontos) {
-
+	public Robo(int id, String nome, int posicaox, int posicaoy, Plano plano, int pontos, String letra) {
 		this.id = id;
 		this.nome = nome;
 		this.posicaox = posicaox;
 		this.posicaoy = posicaoy;
 		this.plano = plano;
 		this.pontos = 0;
+		this.Visitadas = new ArrayList<>();
+		this.letra = letra;
 
 		Celula aux = null;
 		for (int i = 0; i < plano.listaCelulas.size(); i++) {
@@ -31,6 +37,10 @@ public abstract class Robo {
 		return nome;
 	}
 
+	public String getLetra() {
+		return letra;
+	}
+
 	public int getPosicaox() {
 		return posicaox;
 	}
@@ -39,12 +49,20 @@ public abstract class Robo {
 		return posicaoy;
 	}
 
+	public int getPontos() {
+		return pontos;
+	}
+
 	public abstract void avançar(int quantidade);
 
 	public abstract void retroceder(int quantidade);
 
 	public abstract void verificaLimite();
-	
+
+	public List<Celula> visitadas() {
+		return Visitadas;
+	}
+
 	public void ganhaPonto(int pontos) {
 		this.pontos += pontos;
 	}

@@ -1,15 +1,15 @@
 package robo;
 
-public class Bispo extends Robo {
+public class Rei extends Robo {
 
-	public Bispo(int id, String nome, int posicaox, int posicaoy, Plano plano, int pontos) {
-		super(id, nome, 1, 1, plano, pontos);
+	public Rei(int id, String nome, int posicaox, int posicaoy, Plano plano, int pontos) {
+		super(id, nome, 1, 1, plano, pontos, "K");
 		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public void avançar(int quantidade) {
-		int m = Math.min(quantidade, 2);
+		int m = Math.min(quantidade, 4);
 		posicaoy += m;
 		posicaox += m;
 
@@ -17,9 +17,9 @@ public class Bispo extends Robo {
 
 	@Override
 	public void retroceder(int quantidade) {
-		int m = Math.min(quantidade, 2);
+		int m = Math.min(quantidade, 4);
 		posicaoy -= m;
-		posicaox += m;
+		posicaox -= m;
 
 	}
 
@@ -35,6 +35,7 @@ public class Bispo extends Robo {
 			posicaoy = Math.min(plano.getTamanhoY(), posicaoy);
 			posicaox = Math.min(plano.getTamanhoX(), posicaox);
 		}
+
 	}
 
 }
