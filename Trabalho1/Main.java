@@ -9,13 +9,13 @@ public class Main {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		
-		// Informando o nome:
+		// a
 		System.out.println("Vamos jogar? Me informe seu nome: ");
 		String nome = sc.nextLine();
 		Player play = new Player(nome);
 		System.out.println("Muito bem, " + play.getNome() + ". O jogo começará em instantes, mas antes...");
 
-		// Dimensoes do plano:
+		// b
 		System.out.println("Me forneça as dimensões do plano: ");
 		System.out.println("X: ");
 		int posX = sc.nextInt();
@@ -25,13 +25,12 @@ public class Main {
 		AlunoPerdido ap = new AlunoPerdido(p);
 		Bugs bu = new Bugs(p);
 
-		// Alunos perdidos e bugs:
+		// c
 		System.out.println("Quantos alunos se perderam? ");
 		int alunosPerdidos = sc.nextInt();
 		System.out.println("Quantos bugs tem na ilha? ");
 		int bugsEscondidos = sc.nextInt();
-
-		// sortear posicoes e robo.
+		
 		List<Robo> robos = new ArrayList<>();
 		ap.sortearPosicaoAlunosPerdidos(alunosPerdidos);
 		bu.sortearPosicaoBugs(bugsEscondidos);
@@ -62,8 +61,8 @@ public class Main {
 		}
 
 		sc.nextLine();
-
-		Partida pt = new Partida(alunosPerdidos, bugsEscondidos, p, robos);
+		//d
+		Partida pt = new Partida(alunosPerdidos, bugsEscondidos, p, robos, play);
 
 		pt.comecarPartida();
 

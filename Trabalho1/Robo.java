@@ -20,7 +20,7 @@ public abstract class Robo {
 		this.posicaox = posicaox;
 		this.posicaoy = posicaoy;
 		this.plano = plano;
-		this.pontos = 0;
+		this.pontos = pontos;
 		this.Visitadas = new ArrayList<>();
 		this.letra = letra;
 
@@ -62,6 +62,13 @@ public abstract class Robo {
 	public List<Celula> visitadas() {
 		return Visitadas;
 	}
+	public void visitou(Celula c){
+		visitadas().add(c);
+	}
+
+	/*
+	 * public void cVisitada(Celula celula) { Visitadas.add(celula); }
+	 */
 
 	public void ganhaPonto(int pontos) {
 		this.pontos += pontos;
@@ -77,5 +84,6 @@ public abstract class Robo {
 		} else if (c.temBug()) {
 			perdePonto(15);
 		}
+
 	}
 }

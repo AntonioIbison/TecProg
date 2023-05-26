@@ -12,9 +12,11 @@ public class Celula {
 	public Celula(int id, int x, int y) {
 		posicaoX = x;
 		posicaoY = y;
-		this.id=id;
+		this.id = id;
 		robo = null;
+
 	}
+
 	public Celula(int x, int y) {
 		posicaoX = x;
 		posicaoY = y;
@@ -34,12 +36,12 @@ public class Celula {
 	}
 
 	public boolean retiraAluno() {
-		 if (aluno != null) {
-		        aluno = null;
-		        return true; 
-		    } else {
-		        return false; 
-		    }
+		if (aluno != null) {
+			aluno = null;
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	public boolean temBug() {
@@ -48,28 +50,28 @@ public class Celula {
 
 	public boolean retiraBug() {
 		if (bug != null) {
-	        bug = null;
-	        return true; 
-	    } else {
-	        return false; 
-	    }
+			bug = null;
+			return true;
+		} else {
+			return false;
+		}
 	}
+
 	public void setAluno(AlunoPerdido aluno) {
-	    this.aluno = aluno;
+		this.aluno = aluno;
 	}
 
 	public AlunoPerdido getAluno() {
-	    return aluno;
+		return aluno;
 	}
 
 	public void setBug(Bugs bug) {
-	    this.bug = bug;
+		this.bug = bug;
 	}
 
 	public Bugs getBug() {
-	    return bug;
+		return bug;
 	}
-
 
 	public String imprimir() {
 		return "Celula:  " + id + " x: " + posicaoX + " y: " + posicaoY;
