@@ -2,10 +2,10 @@ package robo;
 
 public class Celula {
 
-	public int posicaoX;
-	public int posicaoY;
-	public int id;
-	public Robo robo;
+	protected int posicaoX;
+	protected int posicaoY;
+	private int id;
+	protected Robo robo;
 	private AlunoPerdido aluno;
 	private Bugs bug;
 

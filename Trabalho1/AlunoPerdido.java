@@ -14,7 +14,7 @@ public class AlunoPerdido {
 	Random random = new Random();
 
 	public AlunoPerdido(Plano plano) {
-	    this.plano = plano;
+		this.plano = plano;
 	}
 
 	public int getPosicaoX() {
@@ -56,5 +56,4 @@ public class AlunoPerdido {
 
 		}
 	}
-
 }

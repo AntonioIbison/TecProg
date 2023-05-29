@@ -1,8 +1,8 @@
 package robo;
 
-public class roboAndador extends Robo {
+public class RoboAndador extends Robo {
 
-	public roboAndador(int id, String nome, int posicaox, int posicaoy, Plano plano, int pontos) {
+	public RoboAndador(int id, String nome, int posicaox, int posicaoy, Plano plano, int pontos) {
 		super(id, "Andador", 1, 1, plano, pontos, "A");
 		// TODO Auto-generated constructor stub
 	}

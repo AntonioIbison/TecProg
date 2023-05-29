@@ -6,7 +6,7 @@ public class Plano {
 
 	private int tamanhoX;
 	private int tamanhoY;
-	public ArrayList<Celula> listaCelulas;
+	protected ArrayList<Celula> listaCelulas;
 
 	public Plano(int tamanhoX, int tamanhoY) {
 		this.tamanhoX = tamanhoX;

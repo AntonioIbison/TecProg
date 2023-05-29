@@ -5,12 +5,12 @@ import java.util.List;
 
 public abstract class Robo {
 
-	public int id;
-	public String nome;
-	public int posicaox;
-	public int posicaoy;
-	public Plano plano;
-	public int pontos;
+	protected int id;
+	protected String nome;
+	protected int posicaox;
+	protected int posicaoy;
+	protected Plano plano;
+	protected int pontos;
 	private String letra;
 	private List<Celula> Visitadas;
 
@@ -62,7 +62,8 @@ public abstract class Robo {
 	public List<Celula> visitadas() {
 		return Visitadas;
 	}
-	public void visitou(Celula c){
+
+	public void visitou(Celula c) {
 		visitadas().add(c);
 	}
 
