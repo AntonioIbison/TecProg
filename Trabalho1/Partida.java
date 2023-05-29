@@ -14,6 +14,7 @@ public class Partida implements Rodadas {
 	private Plano plano;
 	private List<Robo> r;
 	private Player jogador;
+	private int maisPontos;
 
 	public Partida(int alunosPerdidos, int bugsEscondidos, Plano plano, List<Robo> r, Player jogador) {
 		this.alunosPerdidos = alunosPerdidos;
@@ -21,19 +22,18 @@ public class Partida implements Rodadas {
 		this.plano = plano;
 		this.r = r;
 		this.jogador = jogador;
-
+		maisPontos = 0;
 	}
 
 	public void comecarPartida() {
-
-		Tabuleiro();
+		mapa();
 		while (!todosAlunosAchados()) {
 			movimentaVerificaAtualizaRobo();
-			AlunoBugAchados();
-			Pontos();
+			alunoBugAchados();
+			pontos();
 			verTerminoPartida();
 		}
-		RelatorioFinal();
+		relatorioFinal();
 	}
 
 	private void verTerminoPartida() {
@@ -63,23 +63,20 @@ public class Partida implements Rodadas {
 				} else {
 					movimentaVerificaAtualizaRobo();
 				}
-
-				Tabuleiro();
+				mapa();
 			} catch (InputMismatchException e) {
-				System.out.println("Valores inválidos.");
+				System.out.println("valor invalido, vamos denovo...");
 				movimentaVerificaAtualizaRobo();
 			}
 		}
 	}
 
-	private void AlunoBugAchados() {
+	private void alunoBugAchados() {
 		List<Celula> alunosEncontrados = new ArrayList<>();
 		List<Celula> bugsEncontrados = new ArrayList<>();
 
 		for (Robo robo : r) {
-			int xBuscado = robo.getPosicaox();
-			int yBuscado = robo.getPosicaoy();
-			Celula c = plano.retornarCelula(xBuscado, yBuscado);
+			Celula c = plano.retornarCelula(robo.getPosicaox(), robo.getPosicaoy());
 
 			if (c != null) {
 				if (c.temAluno()) {
@@ -106,7 +103,7 @@ public class Partida implements Rodadas {
 			c.retiraBug();
 		}
 
-		Relatorio();
+		relatorio();
 	}
 
 	private boolean todosAlunosAchados() {
@@ -123,12 +120,11 @@ public class Partida implements Rodadas {
 	}
 
 	// g
-	private void Pontos() {
+	private void pontos() {
 		System.out.println("✄╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌");
 		for (Robo robo : r) {
-			System.out.println("Pontuação do " + robo.getNome() + ": " + robo.getPontos());
-			System.out.println(
-					"Posiçao do robo " + robo.getNome() + ": (" + robo.getPosicaox() + "," + robo.getPosicaoy() + ").");
+			System.out.println("Pontuação do " + robo.getNome() + ": " + robo.getPontos() + "\nAtual posição do robo "
+					+ robo.getNome() + ": (" + robo.getPosicaox() + "," + robo.getPosicaoy() + ").");
 
 			List<Celula> visitadas = robo.visitadas();
 			System.out.println("Posições visitadas pelo " + robo.getNome() + ":");
@@ -140,7 +136,7 @@ public class Partida implements Rodadas {
 
 	}
 
-	public void Tabuleiro() {
+	public void mapa() {
 
 		for (int j = 1; j <= plano.getTamanhoX(); j++) {
 			for (int i = 1; i <= plano.getTamanhoY(); i++) {
@@ -153,7 +149,7 @@ public class Partida implements Rodadas {
 					}
 				}
 				/*
-				 * if(c.temAluno() || c.temBug()) { bloco = "* "; }
+				 * if(c.temAluno() || c.temBug()) { bloco = "∎ "; }
 				 */
 				if (c.temAluno()) {
 					bloco = "A ";
@@ -168,14 +164,15 @@ public class Partida implements Rodadas {
 	}
 
 	// f
-	private void Relatorio() {
+	private void relatorio() {
 		System.out.println("✄╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌\nRelatório da rodada: ");
 		System.out.println("Restam " + alunosPerdidos + " alunos.");
 		System.out.println("Restam " + bugsEscondidos + " bugs.");
 	}
 
 	// h
-	private void RelatorioFinal() {
+	private void relatorioFinal() {
+		Robo vence = null;
 		System.out.println("✄╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌\nRelatório Final: ");
 		for (Robo robo : r) {
 			System.out.println(robo.getNome() + " fez " + robo.getPontos() + " pontos.");
@@ -184,13 +181,17 @@ public class Partida implements Rodadas {
 				System.out.println(
 						robo.getNome() + " passou por: (" + celula.getPosicaoX() + "," + celula.getPosicaoY() + ").");
 			}
+			if (robo.getPontos() > maisPontos) {
+				maisPontos = robo.getPontos();
+				vence = robo;
+			}
+
 			System.out.println("✄╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌");
 		}
-		System.out.println("Nao ha mais alunos perdidos.");
-		System.out.println("Nao ha mais bugs escondidos.");
-
-		Robo vence = Collections.max(r, Comparator.comparingInt(Robo::getPontos));
-		System.out.println("Obrigado por jogar, " + jogador.getNome() + ". O robô " + vence.getNome() + " venceu com "
-				+ vence.getPontos() + " pontos.");
+		System.out.println("Nao ha mais alunos e bugs no mapa.");
+		if (vence != null) {
+			System.out.println("Obrigado por jogar, " + jogador.getNome() + ". O robô " + vence.getNome()
+					+ " venceu com " + vence.getPontos() + " pontos.");
+		}
 	}
 }
