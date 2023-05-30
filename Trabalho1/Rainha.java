@@ -11,7 +11,7 @@ public class Rainha extends Robo {
 		int m = Math.min(quantidade, 4);
 		posicaoy += m;
 		posicaox += m;
-
+		verificaLimite();
 	}
 
 	@Override
@@ -19,7 +19,7 @@ public class Rainha extends Robo {
 		int m = Math.min(quantidade, 4);
 		posicaoy -= m;
 		posicaox += m;
-
+		verificaLimite();
 	}
 
 	@Override

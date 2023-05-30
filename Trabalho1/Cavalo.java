@@ -10,14 +10,14 @@ public class Cavalo extends Robo {
 		int m = Math.min(quantidade, 2);
 		posicaoy += m;
 		posicaox += m;
-
+		verificaLimite();
 	}
 
 	public void retroceder(int quantidade) {
 		int m = Math.min(quantidade, 2);
 		posicaoy -= m;
 		posicaox -= m;
-
+		verificaLimite();
 	}
 
 	@Override

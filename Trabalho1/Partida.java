@@ -148,9 +148,11 @@ public class Partida implements Rodadas {
 
 					}
 				}
-				/*
-				 * if(c.temAluno() || c.temBug()) { bloco = "∎ "; }
-				 */
+
+//				if (c.temAluno() || c.temBug()) {
+//					bloco = "∎ ";
+//				}
+
 				if (c.temAluno()) {
 					bloco = "A ";
 				} else if (c.temBug()) {

@@ -67,10 +67,6 @@ public abstract class Robo {
 		visitadas().add(c);
 	}
 
-	/*
-	 * public void cVisitada(Celula celula) { Visitadas.add(celula); }
-	 */
-
 	public void ganhaPonto(int pontos) {
 		this.pontos += pontos;
 	}

@@ -11,7 +11,7 @@ public class Bispo extends Robo {
 		int m = Math.min(quantidade, 2);
 		posicaoy += m;
 		posicaox += m;
-
+		verificaLimite();
 	}
 
 	@Override
@@ -19,7 +19,7 @@ public class Bispo extends Robo {
 		int m = Math.min(quantidade, 2);
 		posicaoy -= m;
 		posicaox += m;
-
+		verificaLimite();
 	}
 
 	@Override

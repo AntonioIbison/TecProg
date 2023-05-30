@@ -9,10 +9,12 @@ public class RoboAndador extends Robo {
 
 	public void avançar(int quantidade) {
 		posicaoy += quantidade;
+		verificaLimite();
 	}
 
 	public void retroceder(int quantidade) {
 		posicaoy -= quantidade;
+		verificaLimite();
 	}
 
 	@Override

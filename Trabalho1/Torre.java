@@ -10,11 +10,13 @@ public class Torre extends Robo {
 	public void avançar(int quantidade) {
 		int m = Math.min(quantidade, 2);
 		posicaoy += m;
+		verificaLimite();
 	}
 
 	public void retroceder(int quantidade) {
 		int m = Math.min(quantidade, 2);
 		posicaoy -= m;
+		verificaLimite();
 	}
 
 	@Override
