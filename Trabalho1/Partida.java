@@ -24,7 +24,8 @@ public class Partida implements Rodadas {
 		this.jogador = jogador;
 		maisPontos = 0;
 	}
-
+	
+	//d
 	public void comecarPartida() {
 		mapa();
 		while (!todosAlunosAchados()) {

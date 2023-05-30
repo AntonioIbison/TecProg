@@ -21,11 +21,9 @@ public class Peao extends Robo {
 	public void verificaLimite() {
 
 		if (posicaox <= 0) {
-			System.out.println("Bateu no limite do tabuleiro.");
 			posicaox = 1;
 
 		} else if (posicaox >= plano.getTamanhoX()) {
-			System.out.println("Bateu no limite do tabuleiro.");
 			posicaox = plano.getTamanhoX();
 		}
 

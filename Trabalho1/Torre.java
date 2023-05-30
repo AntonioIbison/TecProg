@@ -22,11 +22,9 @@ public class Torre extends Robo {
 	@Override
 	public void verificaLimite() {
 		if (posicaoy <= 0) {
-			System.out.println("Bateu no limite do tabuleiro.");
 			posicaoy=1;
 			
 		} else if(posicaoy >= plano.getTamanhoY()) {
-			System.out.println("Bateu no limite do tabuleiro.");
 			posicaoy=plano.getTamanhoY();
 		}
 		

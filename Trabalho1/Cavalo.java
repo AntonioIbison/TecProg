@@ -23,14 +23,12 @@ public class Cavalo extends Robo {
 	@Override
 	public void verificaLimite() {
 		if (posicaoy <= 0 || posicaox <= 0) {
-			System.out.println("Bateu no limite do tabuleiro.");
-			posicaoy = Math.max(1, posicaoy);
-			posicaox = Math.max(1, posicaox);
+			posicaoy = 1;
+			posicaox = 1;
 
 		} else if (posicaoy >= plano.getTamanhoY() || posicaox >= plano.getTamanhoX()) {
-			System.out.println("Bateu no limite do tabuleiro.");
-			posicaoy = Math.min(plano.getTamanhoY(), posicaoy);
-			posicaox = Math.min(plano.getTamanhoX(), posicaox);
+			posicaoy = plano.getTamanhoY();
+			posicaox = plano.getTamanhoX();
 		}
 	}
 
