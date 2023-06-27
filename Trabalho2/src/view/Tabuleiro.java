@@ -15,7 +15,7 @@ public class Tabuleiro extends JPanel implements ActionListener {
 	public int BugsAchados = 0;
 	public int AlunosAchados = 0;
 	public int pontuacao = 0;
-	private JButton[][] botoesDoMapa;
+	private JButton[][] botoesTabuleiro;
 	private JButton b;
 	private Sorteio s;
 
@@ -23,12 +23,12 @@ public class Tabuleiro extends JPanel implements ActionListener {
 		s = new Sorteio();
 		this.frame = frame;
 		this.setLayout(new GridLayout(8, 8));
-		this.botoesDoMapa = new JButton[8][8];
+		this.botoesTabuleiro = new JButton[8][8];
 		s.sortearPosicoes();
 		for (int i = 0; i < 8; i++) {
 			for (int j = 0; j < 8; j++) {
 				b = botoes();
-				this.botoesDoMapa[i][j] = b;
+				this.botoesTabuleiro[i][j] = b;
 				this.add(b);
 			}
 		}
@@ -56,30 +56,30 @@ public class Tabuleiro extends JPanel implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		JButton botaoClicado = (JButton) e.getSource();
+		JButton botaoEscolha = (JButton) e.getSource();
 
 		for (int i = 0; i < 8; i++) {
 			for (int j = 0; j < 8; j++) {
 
-				if (botaoClicado == botoesDoMapa[i][j]) {
+				if (botaoEscolha == botoesTabuleiro[i][j]) {
 					if (PainelRobos.escolhaRobo != null) {
-						botaoClicado.setIcon(PainelRobos.escolhaRobo.getIcon());
+						botaoEscolha.setIcon(PainelRobos.escolhaRobo.getIcon());
 
-						botaoClicado.setEnabled(false);
-						botaoClicado.setBackground(Color.decode("#051923"));
+						botaoEscolha.setEnabled(false);
+						botaoEscolha.setBackground(Color.decode("#051923"));
 
 						if (s.verificaAluno(i, j)) {
-							botaoClicado.setBackground(Color.decode("#588157"));
+							botaoEscolha.setBackground(Color.decode("#588157"));
 							AlunosAchados++;
 							pontuacao += 20;
-							botaoClicado.setDisabledIcon(botaoClicado.getIcon());
+							botaoEscolha.setDisabledIcon(botaoEscolha.getIcon());
 							AtualizacoesControle.atualizarQuantidadeAlunos(AlunosAchados);
 
 						} else if (s.verificaBug(i, j)) {
-							botaoClicado.setBackground(Color.decode("#d90429"));
+							botaoEscolha.setBackground(Color.decode("#d90429"));
 							BugsAchados++;
 							pontuacao -= 15;
-							botaoClicado.setDisabledIcon(botaoClicado.getIcon());
+							botaoEscolha.setDisabledIcon(botaoEscolha.getIcon());
 							AtualizacoesControle.atualizarQuantidadeBugs(BugsAchados);
 
 						}
