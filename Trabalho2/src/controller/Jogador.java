@@ -1,6 +1,10 @@
-package view;
+package controller;
 
 import java.io.File;
+
+import view.Arquivo;
+import view.Nome;
+import view.Tabuleiro;
 
 public class Jogador {
 

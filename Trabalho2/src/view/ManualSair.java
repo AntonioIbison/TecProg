@@ -9,6 +9,8 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
+import controller.Jogador;
+
 public class ManualSair extends JPanel implements ActionListener {
 	private JanelaPrincipal frame;
 	private Jogador j;
@@ -42,13 +44,14 @@ public class ManualSair extends JPanel implements ActionListener {
 		if (e.getSource() instanceof JButton) {
 			JButton button = (JButton) e.getSource();
 			if (button.getText().equals("Manual do jogo")) {
-				frame.mapa.setVisible(true);
-				frame.relatorios.setVisible(false);
+
+				TelaManual tm = new TelaManual();
+				tm.setVisible(true);
 
 			} else if (button.getText().equals("Sair da partida")) {
-				 if (j != null) {
-	                    j.salvarDados();
-	                }
+				if (j != null) {
+					j.salvarDados();
+				}
 
 				frame.mapa.setVisible(false);
 				frame.relatorios.setVisible(true);

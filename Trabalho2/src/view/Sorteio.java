@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import controller.Aluno;
+import controller.Bug;
+
 public class Sorteio {
 	private int linhas, colunas;
 	public int qtddAluno, qntddBug;
@@ -30,28 +33,21 @@ public class Sorteio {
 		for (int i = 0; i < quantidade; i++) {
 			int linha, coluna;
 			do {
-				linha = sortearNumeroAleatorio(linhas);
-				coluna = sortearNumeroAleatorio(colunas);
+				linha = new Random().nextInt(linhas);
+				coluna = new Random().nextInt(colunas);
 			} while (ocupadas.contains(linha + "," + coluna));
 
 			if (lista == alunos) {
 				alunos.add(new Aluno(linha, coluna));
-				System.out.println("Aluno " + (i + 1) + ": (" + (linha + 1) + "," + (coluna + 1) + ")");
 			} else if (lista == bugs) {
 				bugs.add(new Bug(linha, coluna));
-				System.out.println("Bug " + (i + 1) + ": (" + (linha + 1) + "," + (coluna + 1) + ")");
 			}
 		}
-	}
-
-	private int sortearNumeroAleatorio(int maximo) {
-		return new Random().nextInt(maximo);
 	}
 
 	public boolean verificaAluno(int linha, int coluna) {
 		for (Aluno aluno : alunos) {
 			if (aluno.getPosY() == linha && aluno.getPosX() == coluna) {
-				qtddAluno--;
 				return true;
 			}
 		}
@@ -61,7 +57,6 @@ public class Sorteio {
 	public boolean verificaBug(int linha, int coluna) {
 		for (Bug bug : bugs) {
 			if (bug.getPosY() == linha && bug.getPosX() == coluna) {
-				qntddBug--;
 				return true;
 			}
 		}

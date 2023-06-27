@@ -58,8 +58,8 @@ public class Tabuleiro extends JPanel implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		JButton botaoClicado = (JButton) e.getSource();
 
-		for (int i = 0; i < botoesDoMapa.length; i++) {
-			for (int j = 0; j < botoesDoMapa[i].length; j++) {
+		for (int i = 0; i < 8; i++) {
+			for (int j = 0; j < 8; j++) {
 
 				if (botaoClicado == botoesDoMapa[i][j]) {
 					if (PainelRobos.escolhaRobo != null) {
@@ -81,6 +81,7 @@ public class Tabuleiro extends JPanel implements ActionListener {
 							pontuacao -= 15;
 							botaoClicado.setDisabledIcon(botaoClicado.getIcon());
 							AtualizacoesControle.atualizarQuantidadeBugs(BugsAchados);
+
 						}
 						PainelControle.atualizarPontos(pontuacao);
 

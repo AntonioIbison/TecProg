@@ -6,9 +6,12 @@ import java.awt.GridLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import controller.Jogador;
+
 public class PainelControle extends JPanel {
 
 	public JanelaPrincipal j;
+	private Jogador jo;
 	private Tabuleiro t;
 	private static JLabel pontuacaoLabel;
 	
@@ -17,8 +20,9 @@ public class PainelControle extends JPanel {
 	private AtualizacoesControle atc;
 	private PontuacaoIndividual pi;
 
-	public PainelControle(JanelaPrincipal j) {
+	public PainelControle(JanelaPrincipal j, Jogador jo) {
 		this.j = j;
+		this.jo = jo;
 		t = new Tabuleiro(null);
 		this.setLayout(new GridLayout(5, 1));
 		this.setBackground(Color.decode("#fed9b7"));
@@ -28,7 +32,7 @@ public class PainelControle extends JPanel {
 		pi = new PontuacaoIndividual();
 		atc= new AtualizacoesControle();
 		robos = new PainelRobos();
-		vps = new ManualSair(j, null);
+		vps = new ManualSair(j, jo);
 
 		this.add(pontuacaoLabel);
 		this.add(atc);

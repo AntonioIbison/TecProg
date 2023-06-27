@@ -17,20 +17,19 @@ public class EscolhaSuperior implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() instanceof JButton) {
-			JButton button = (JButton) e.getSource();
-			if (button.getText().equals("Jogar")) {
-				String nome = n.getNomeInserido();
-				if (!(nome.isEmpty())) {
-					frame.mapa.setVisible(true);
-					frame.pc.setVisible(true);
-					frame.relatorios.setVisible(false);
-				}
-			} else if (button.getText().equals("Relatorios")) {
-				frame.mapa.setVisible(false);
-				frame.pc.setVisible(false);
-				frame.relatorios.setVisible(true);
+
+		JButton button = (JButton) e.getSource();
+		if (button.getText().equals("Jogar")) {
+			String nome = n.getNomeInserido();
+			if (!(nome.isEmpty())) {
+				frame.mapa.setVisible(true);
+				frame.pc.setVisible(true);
+				frame.relatorios.setVisible(false);
 			}
+		} else if (button.getText().equals("Relatorios")) {
+			frame.mapa.setVisible(false);
+			frame.pc.setVisible(false);
+			frame.relatorios.setVisible(true);
 		}
 
 	}

@@ -30,7 +30,7 @@ public class JanelaPrincipal extends JFrame {
 
 	private void iniciar() {
 		mapa = new Tabuleiro(null);
-		pc = new PainelControle(this);
+		pc = new PainelControle(this, null);
 		relatorios = new PainelRelatorio();
 		opcoes = new PainelSuperior(this);
 	}

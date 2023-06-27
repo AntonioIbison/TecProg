@@ -15,7 +15,6 @@ public class PainelRobos extends JPanel implements ActionListener {
 	public static JButton escolhaRobo;
 
 	private JButton[] robos;
-
 	private ImageIcon[] icons;
 
 	public PainelRobos() {
