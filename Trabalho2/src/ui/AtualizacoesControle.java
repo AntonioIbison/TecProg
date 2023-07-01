@@ -1,5 +1,5 @@
 
-package view;
+package ui;
 
 import java.awt.Color;
 import java.awt.FlowLayout;

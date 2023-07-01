@@ -1,10 +1,10 @@
-package controller;
+package entities;
 
 import java.io.File;
 
-import view.Arquivo;
-import view.Nome;
-import view.Tabuleiro;
+import persistencia.Arquivo;
+import ui.Nome;
+import ui.Tabuleiro;
 
 public class Jogador {
 

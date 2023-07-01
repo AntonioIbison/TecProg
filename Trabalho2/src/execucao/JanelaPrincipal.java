@@ -1,4 +1,4 @@
-package view;
+package execucao;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -10,6 +10,11 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+
+import ui.PainelControle;
+import ui.PainelRelatorio;
+import ui.PainelSuperior;
+import ui.Tabuleiro;
 
 public class JanelaPrincipal extends JFrame {
 

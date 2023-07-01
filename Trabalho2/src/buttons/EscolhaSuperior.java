@@ -1,9 +1,12 @@
-package view;
+package buttons;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+
+import execucao.JanelaPrincipal;
+import ui.Nome;
 
 public class EscolhaSuperior implements ActionListener {
 

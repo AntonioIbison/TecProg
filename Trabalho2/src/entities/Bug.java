@@ -1,4 +1,4 @@
-package controller;
+package entities;
 
 public class Bug {
     private int posX;

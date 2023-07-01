@@ -1,4 +1,4 @@
-package view;
+package ui;
 
 import java.awt.Color;
 import java.awt.GridLayout;
@@ -71,7 +71,7 @@ public class Tabuleiro extends JPanel implements ActionListener {
 						if (s.verificaAluno(i, j)) {
 							botaoEscolha.setBackground(Color.decode("#588157"));
 							AlunosAchados++;
-							pontuacao += 20;
+							pontuacao += 10;
 							botaoEscolha.setDisabledIcon(botaoEscolha.getIcon());
 							AtualizacoesControle.atualizarQuantidadeAlunos(AlunosAchados);
 

@@ -1,9 +1,13 @@
-package view;
+package ui;
 
 import java.awt.Color;
 
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
+
+import buttons.Botao;
+import buttons.EscolhaSuperior;
+import execucao.JanelaPrincipal;
 
 public class PainelSuperior extends JPanel {
 

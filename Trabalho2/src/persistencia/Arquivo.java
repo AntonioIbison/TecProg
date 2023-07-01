@@ -1,4 +1,4 @@
-package view;
+package persistencia;
 
 import java.io.File;
 import java.io.FileWriter;

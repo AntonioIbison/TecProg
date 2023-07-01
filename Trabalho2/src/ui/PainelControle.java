@@ -1,4 +1,4 @@
-package view;
+package ui;
 
 import java.awt.Color;
 import java.awt.GridLayout;
@@ -6,7 +6,8 @@ import java.awt.GridLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import controller.Jogador;
+import entities.Jogador;
+import execucao.JanelaPrincipal;
 
 public class PainelControle extends JPanel {
 
@@ -15,7 +16,7 @@ public class PainelControle extends JPanel {
 	private Tabuleiro t;
 	private static JLabel pontuacaoLabel;
 	
-	private ManualSair vps;
+	private VerificarSair vps;
 	private PainelRobos robos;
 	private AtualizacoesControle atc;
 	private PontuacaoIndividual pi;
@@ -32,7 +33,7 @@ public class PainelControle extends JPanel {
 		pi = new PontuacaoIndividual();
 		atc= new AtualizacoesControle();
 		robos = new PainelRobos();
-		vps = new ManualSair(j, jo);
+		vps = new VerificarSair(j, jo);
 
 		this.add(pontuacaoLabel);
 		this.add(atc);

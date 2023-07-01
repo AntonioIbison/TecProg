@@ -1,11 +1,11 @@
-package view;
+package ui;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import controller.Aluno;
-import controller.Bug;
+import entities.Aluno;
+import entities.Bug;
 
 public class Sorteio {
 	private int linhas, colunas;

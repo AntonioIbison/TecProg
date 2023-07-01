@@ -1,4 +1,4 @@
-package view;
+package ui;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -9,27 +9,28 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-import controller.Jogador;
+import entities.Jogador;
+import execucao.JanelaPrincipal;
 
-public class ManualSair extends JPanel implements ActionListener {
+public class VerificarSair extends JPanel implements ActionListener {
 	private JanelaPrincipal frame;
 	private Jogador j;
-	private JButton manual;
+	private JButton verificar;
 	private JButton sair;
 
-	public ManualSair(JanelaPrincipal frame, Jogador jogador) {
+	public VerificarSair(JanelaPrincipal frame, Jogador jogador) {
 		this.j = jogador;
 		this.frame = frame;
 		this.setBackground(Color.decode("#fed9b7"));
 		this.setLayout(new GridLayout(2, 1, 0, 7));
 
-		manual = botoes("Manual do jogo", "#8e7dbe");
+		verificar = botoes("Verificar", "#8e7dbe");
 		sair = botoes("Sair da partida", "#8e7dbe");
 
-		manual.addActionListener(this);
+		verificar.addActionListener(this);
 		sair.addActionListener(this);
 
-		this.add(manual);
+		this.add(verificar);
 		this.add(sair);
 	}
 
@@ -43,10 +44,7 @@ public class ManualSair extends JPanel implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() instanceof JButton) {
 			JButton button = (JButton) e.getSource();
-			if (button.getText().equals("Manual do jogo")) {
-
-				TelaManual tm = new TelaManual();
-				tm.setVisible(true);
+			if (button.getText().equals("Verificar")) {
 
 			} else if (button.getText().equals("Sair da partida")) {
 				if (j != null) {

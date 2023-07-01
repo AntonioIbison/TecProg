@@ -1,4 +1,4 @@
-package view;
+package ui;
 
 import java.awt.GridLayout;
 
@@ -7,7 +7,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
 public class PainelRelatorio extends JPanel {
-	JPanel painelFundo;
+	private JPanel painelFundo;
 	private JTable tabela;
 	private JScrollPane barraRolagem;
 
