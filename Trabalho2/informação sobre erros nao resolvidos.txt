@@ -1,0 +1,3 @@
+Resolvi manter classes como Arquivos, jogador, PainelRelatorio pois foi ate
+onde consegui chegar pra formular a manipulaçao de arquivos, entao resolvi
+manter como uma forma de eu ver ate onde consegui ir.
